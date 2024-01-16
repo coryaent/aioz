@@ -1,0 +1,39 @@
+# This is a TOML config file.
+# For more information, see https://github.com/toml-lang/toml
+
+# NOTE: Any path below can be absolute (e.g. "/var/myawesomeapp/data") or
+# relative to the home directory (e.g. "data"). The home directory is
+# "$HOME/.aiozworker" by default, but could be changed via $HOME env variable
+# or --home cmd flag.
+
+# Output level for logging, including package level options
+log_level = "debug"
+
+# Output format: 'plain' (colored text) or 'json'
+log_format = "plain"
+
+##### additional base config options #####
+
+# TCP or UNIX socket address for the profiling server to listen on
+pprof_laddr = "localhost:6060"
+
+##### advanced configuration options #####
+
+##### hub configuration options #####
+[hub]
+
+address = "main-hub.aioz.network:443"
+
+secure = true
+
+##### storage configuration options #####
+[storage]
+
+storage_dir = "data"
+
+size_limit = "-1"
+
+##### Prometheus options #####
+
+# do not start Prometheus if empty
+prometheus_listen_addr = ""
