@@ -7,7 +7,7 @@
 # or --home cmd flag.
 
 # Output level for logging, including package level options
-log_level = "debug"
+log_level = "info"
 
 # Output format: 'plain' (colored text) or 'json'
 log_format = "plain"
@@ -15,7 +15,7 @@ log_format = "plain"
 ##### additional base config options #####
 
 # TCP or UNIX socket address for the profiling server to listen on
-pprof_laddr = "localhost:6060"
+pprof_laddr = ""
 
 ##### advanced configuration options #####
 
@@ -31,7 +31,7 @@ secure = true
 
 storage_dir = "data"
 
-size_limit = "-1"
+size_limit = "5368709120" # 5 GB
 
 ##### Prometheus options #####
 
