@@ -10,6 +10,8 @@ RUN apt-get update && apt-get upgrade -y && \
     rm aioznode-linux-amd64-1.1.0.tar.gz && \
     mkdir -p /run/sshd
 
+EXPOSE 13172
+
 COPY ./config.toml /root/.aiozworker/config/config.toml
 
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
