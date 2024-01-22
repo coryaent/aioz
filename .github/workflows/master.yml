@@ -1,15 +1,15 @@
-name: Main Branch CI
+name: Master Branch CI
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - 'main'
+      - 'master'
     tags:
       - 'v*'
   pull_request:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   docker:
@@ -55,3 +55,14 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
+                
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+      - name: Notify Telegram
+        uses: yanzay/notify-telegram@v0.1.0
+        if: always()
+        with:
+          chat: ${{ secrets.TELEGRAM_USER_ID }} # user id or channel name secret
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }} # token secret
+          status: ${{ job.status }} # do not modify this line
