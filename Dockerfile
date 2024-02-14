@@ -11,11 +11,11 @@ RUN apt-get update && apt-get upgrade -y && \
     mv ./aioznode-linux-amd64-1.1.0 /usr/local/bin/aioznode && \
     rm aioznode-linux-amd64-1.1.0.tar.gz
 
-EXPOSE 13172
+EXPOSE 1317
 
 COPY ./config.toml /root/.aiozworker/config/config.toml
-
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./index.js ./index.js
 
 ENTRYPOINT ["entrypoint.sh"]
 
