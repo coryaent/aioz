@@ -2,7 +2,7 @@ const { exec } = require('node:child_process');
 const dns = require('node:dns');
 
 // use docker swarm service discovery
-dns.resolve (`tasks.${process.env.AIOZ_WORKER_SERVICE}.`, (error, records) => {
+dns.resolve (process.env.AIOZ_WORKER_ENDPOINT, (error, records) => {
   if (error) {
     console.error (`${(new Date ()).toISOString ()}  dns resolve error: ${error}`);
     return;
