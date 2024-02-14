@@ -7,4 +7,4 @@ if ! test -f /root/.aiozworker/privkey.json; then
 fi
 
 # Pass arguments to aioznode
-aioznode "$@"
+exec aioznode "$@"

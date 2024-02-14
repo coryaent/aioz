@@ -15,7 +15,7 @@ EXPOSE 1317
 
 COPY ./config.toml /root/.aiozworker/config/config.toml
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY ./index.js ./index.js
+COPY ./withdraw.js ./withdraw.js
 
 ENTRYPOINT ["entrypoint.sh"]
 
